@@ -1,0 +1,27 @@
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background: #f4f4f4;
+}
+
+h1 {
+  margin-top: 20px;
+}
+
+.top-bar {
+  display: flex;
+  justify-content: space-around;
+  margin: 10px;
+  font-size: 16px;
+}
+
+#mode {
+  font-weight: bold;
+  color: #0077cc;
+}
+
+canvas {
+  border: 2px solid #333;
+  background: white;
+  margin-top: 10px;
+}
