@@ -3,23 +3,66 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>HCI Polyline Editor</title>
+    <title>Polyline Editor</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <h1>Polyline Editor</h1>
-    <div class="top-bar">
-        <div id="mode">MODE: DRAW</div>
-        <div class="instructions">
-            B : Draw | M : Move | D : Delete | R : Refresh | Q : Quit
+    <div class="editor-wrapper">
+    <!-- Left Styling Panel -->
+    <div class="left-panel">
+        <h2>Style Options</h2>
+        <div class="control">
+            <label for="lineColor">Line Color:</label>
+            <input type="color" id="lineColor" value="#333333">
         </div>
-        
+        <div class="control">
+            <label for="lineWidth">Line Width:</label>
+            <input type="range" id="lineWidth" min="1" max="10" value="2">
+        </div>
+        <div class="control">
+            <label for="pointRadius">Point Radius:</label>
+            <input type="range" id="pointRadius" min="2" max="12" value="4">
+        </div>
+        <div class="control">
+            <label for="pointColor">Point Color:</label>
+            <input type="color" id="pointColor" value="#000000">
+        </div>
     </div>
+ <div class="editor-container">
+    <h1>Polyline Editor</h1>
+  <div class="top-bar">
 
-    <div id="status"></div>
-    <canvas id="canvas" width="800" height="500">
-    </canvas>
+  <div class="toolbar-group">
+    <span class="group-label">Modes</span>
+    <div class="mode-buttons">
+      <button id="btnDraw" class="mode-btn active" data-mode="draw">✏️ Draw</button>
+      <button id="btnMove" class="mode-btn" data-mode="move">🖐 Move</button>
+      <button id="btnDelete" class="mode-btn" data-mode="delete">🗑 Delete</button>
+    </div>
+  </div>
+
+  <div class="toolbar-group">
+    <span class="group-label">Actions</span>
+    <div class="mode-buttons">
+      <button id="btnUndo" class="mode-btn">↶ Undo</button>
+      <button id="btnRedo" class="mode-btn">↷ Redo</button>
+      <button id="btnClear" class="mode-btn danger">Clear</button>
+      <button id="btnRefresh" class="mode-btn" data-mode="refresh">⟳ Refresh</button>
+    </div>
+  </div>
+
+  <div class="toolbar-group">
+    <span class="group-label">Export</span>
+    <div class="mode-buttons">
+      <button id="btnExportPNG" class="mode-btn primary">⬇ PNG</button>
+    </div>
+  </div>
+
+</div>
+    <canvas id="canvas" width="950" height="430"></canvas>
+    <div id="bottom-bar"></div>
+</div>
 
     <script src="script.js"></script>
 </body>
