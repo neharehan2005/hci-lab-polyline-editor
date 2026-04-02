@@ -59,8 +59,9 @@ See documentation:
 
 ### 🛠 Main Implementation
 * Design and interaction logic by: **Neha Rehan B23110006131**
+## Note:Low Fidelity Interface of AR Furniture Placement App(Individual Task) is uploaded in docs folder.
 
-### 🔗 Original Repository
+   ## 🔗 Original Repository
 
 (https://github.com/Sana-212/hci-lab-polyline-editor.git)
 
