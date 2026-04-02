@@ -178,7 +178,7 @@ reveals where the interface can either support or obstruct the user.
 
 ### Steps
 
-1. **User presses `Ctrl + Delete`**  
+1. **User presses `D`**  
    - Mode indicator: `MODE: DELETE`  
    - Status bar: `Delete mode active. Click a point to remove it.`
 
