@@ -232,7 +232,7 @@ divided into three functional zones:
 | P1, P2, P3 = vertex labels                                            |
 +-----------------------------------------------------------------------+
 
-![Wireframe](assets/Wireframe.png)
+![Wireframe](../assets/Wireframe.png)
 
 **4. Task Flows**
 
