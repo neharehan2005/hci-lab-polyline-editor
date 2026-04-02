@@ -96,36 +96,13 @@ menus, panels competes with the user\'s attention and obscures the
 drawing canvas, which is the primary interaction surface. The layout is
 divided into three functional zones:
 
-  ----------------------------------- -----------------------------------
-  **UI Zone**                         **Purpose & HCI Rationale**
+  ## UI Layout & Functional Zones
 
-  Top Bar (Mode Indicator)            Displays the current active mode
-                                      (e.g., \'MODE: DRAW\') in
-                                      high-contrast background color Dix
-                                      et al. (2004) identify visibility
-                                      of system status as a core
-                                      usability requirement; this bar
-                                      ensures the user always knows where
-                                      they are.
-
-  Main Canvas                         The dominant central region where
-                                      polylines are drawn and
-                                      manipulated. Points are rendered as
-                                      filled circles; active/selected
-                                      points are highlighted in a
-                                      distinct colour (e.g., blue) to
-                                      signal interactability.
-
-  Bottom Status Bar                   Displays contextual feedback
-                                      messages (e.g., \'Point moved
-                                      successfully\', \'Canvas
-                                      refreshed\'). This satisfies the
-                                      feedback principle, the system
-                                      always acknowledges user actions
-                                      within an appropriate time frame
-                                      (Norman, 1988, as cited in Dix et
-                                      al., 2004).
-  ----------------------------------- -----------------------------------
+| UI Zone             | Purpose & HCI Rationale |
+|--------------------|------------------------|
+| **Top Bar (Mode Indicator)** | Displays the current active mode (e.g., `MODE: DRAW`) in a high-contrast background color. Dix et al. (2004) identify visibility of system status as a core usability requirement; this bar ensures the user always knows where they are. |
+| **Main Canvas**      | The dominant central region where polylines are drawn and manipulated. Points are rendered as filled circles; active/selected points are highlighted in a distinct colour (e.g., blue) to signal interactability. |
+| **Bottom Status Bar**| Displays contextual feedback messages (e.g., `Point moved successfully`, `Canvas refreshed`). This satisfies the feedback principle; the system always acknowledges user actions within an appropriate time frame (Norman, 1988, as cited in Dix et al., 2004). |
 
 ## 3.2 Wireframe
 ![Wireframe](../assets/Wireframe.png)
@@ -323,21 +300,12 @@ than implementation.
 
 ## 6.1 Mode-Based vs. Tool-Based Interaction
 
-  ---------------------------------------------------------------------------------
-  **Approach**   **Advantages**      **Disadvantages**   **Decision**
-  -------------- ------------------- ------------------- --------------------------
-  Mode-based     Simple mental       User must remember  Chosen: simpler cognitive
-  (chosen)       model; consistent   current mode;       model for target users
-                 gesture across      potential for       
-                 actions; minimal UI wrong-mode errors   
-                 clutter                                 
+  ## Design Alternatives: Mode-Based vs Tool-Based Interaction
 
-  Tool-based     Mode always visible Requires a rich     Rejected:overcomplicated
-  (e.g. Figma)   in cursor shape; no toolbar; more       for a keyboard-first tool
-                 mental tracking     visual complexity;  
-                                     harder to implement 
-                                     consistently        
-  ---------------------------------------------------------------------------------
+| Approach      | Advantages                                         | Disadvantages                                  | Decision                                |
+|--------------|---------------------------------------------------|------------------------------------------------|----------------------------------------|
+| Mode-based (chosen) | Simple mental model; consistent gesture across actions; minimal UI clutter | User must remember current mode; potential for wrong-mode errors | Chosen: simpler cognitive model for target users |
+| Tool-based (e.g., Figma) | Mode always visible in cursor shape; no mental tracking | Requires a rich toolbar; more visual complexity; harder to implement consistently | Rejected: overcomplicated for a keyboard-first tool |
 
 Trade-off accepted: mode-based design trades away the convenience of
 always-visible tool state (partially recovered by the mode badge and
@@ -352,83 +320,40 @@ consistent interaction grammar.
 
 ## 6.2 Nearest-Point Threshold: Fixed vs. Dynamic
 
-  -------------------------------------------------------------------------
-  **Approach**    **Advantages**     **Disadvantages**   **Decision**
-  --------------- ------------------ ------------------- ------------------
-  Fixed           Predictable; easy  May fail on dense   Chosen: covers all
-  threshold, 10px to reason about;   polylines where     normal use cases
-  (chosen)        consistent feel    points are \<10px   
-                                     apart               
+ ## Nearest-Point Threshold: Fixed vs Dynamic
 
-  Dynamic         Adapts to point    More complex;       Rejected:
-  threshold       density; safer for threshold changes   over-engineering
-  (zoom-aware)    complex diagrams   can confuse muscle  for scope
-                                     memory              
-
-  Click-area      User sees exactly  Requires additional Incorporated as a
-  highlight on    what will be       rendering pass each supplement hover
-  hover           selected before    frame               glow added
-                  clicking                               
-  -------------------------------------------------------------------------
+| Approach              | Advantages                                        | Disadvantages                                  | Decision                                  |
+|-----------------------|--------------------------------------------------|------------------------------------------------|------------------------------------------|
+| Fixed threshold, 10px (chosen) | Predictable; easy to reason about; consistent feel | May fail on dense polylines where points are <10px apart | Chosen: covers all normal use cases |
+| Dynamic threshold (zoom-aware) | Adapts to point density; safer for complex diagrams | More complex; threshold changes can confuse muscle memory | Rejected: over-engineering for scope |
+| Click-area highlight on hover | User sees exactly what will be selected before clicking | Requires additional rendering pass each frame | Incorporated as a supplement; hover glow added |
 
 ## 
 
 ## 6.3 Feedback Style: Modal Dialog vs. Status Bar
 
-  ---------------------------------------------------------------------------
-  **Approach**    **Advantages**     **Disadvantages**   **Decision**
-  --------------- ------------------ ------------------- --------------------
-  Modal dialog    Unambiguous;       Interrupts flow;    Used only for Quit
-  for             forces             frustrating for     with unsaved changes
-  confirmations   acknowledgement    expert users;       
-                                     violates direct     
-                                     manipulation feel   
+  ## Feedback Style: Modal Dialog vs Status Bar
 
-  Status bar      Non-intrusive;     Can be missed if    Chosen:appropriate
-  messages        does not break     user is not         for low-stakes
-  (chosen)        drawing flow;      watching the bottom feedback
-                  fades cleanly      of screen           
-
-  Toast           More visually      Can overlap canvas; Rejected:status bar
-  notifications   prominent; harder  adds animation      is sufficient
-                  to miss            complexity          
-  ---------------------------------------------------------------------------
+| Approach                 | Advantages                                     | Disadvantages                                   | Decision                                |
+|--------------------------|-----------------------------------------------|-------------------------------------------------|----------------------------------------|
+| Modal dialog for confirmations | Unambiguous; forces acknowledgement        | Interrupts flow; frustrating for expert users; violates direct manipulation feel | Used only for Quit with unsaved changes |
+| Status bar messages (chosen)   | Non-intrusive; does not break drawing flow; fades cleanly | Can be missed if user is not watching the bottom of screen | Chosen: appropriate for low-stakes feedback |
+| Toast notifications           | More visually prominent; harder to miss    | Can overlap canvas; adds animation complexity | Rejected: status bar is sufficient    |
 
 # 7. Key Design Decisions & Rationale
 
-  ----------------------- ----------------------- -----------------------
-  **Design Decision**     **Justification**       **HCI Reference**
+  ## Key Design Decisions & Rationale
 
-  Mode-based structure    Prevents action         A. F. Monk. Mode
-                          ambiguity in a          errors: mode errors
-                          multi-operation tool    arise when gestures
-                                                  carry multiple meanings
+| Design Decision           | Justification                                     | HCI Reference                                           |
+|---------------------------|--------------------------------------------------|--------------------------------------------------------|
+| Mode-based structure      | Prevents action ambiguity in a multi-operation tool | A. F. Monk. Mode errors: mode errors arise when gestures carry multiple meanings |
+| Persistent mode indicator | User always knows current system state          | Visibility of system status (Nielsen, 1994; Dix et al., 2004, Ch. 9, p. 325) |
+| Hover highlight on nearest point | Signals interactable objects; reduces mis-clicks | Affordances (Dix et al., 2004, p. 217); error prevention |
+| Real-time drag feedback   | Immediate response during manipulation reduces uncertainty | Direct manipulation principle (Dix et al., 2004, p. 171) |
+| Nearest-point threshold   | Prevents accidental point selection in dense polylines | Error prevention (Dix et al., 2004, p. 283)           |
+| Keyboard for modes, mouse for space | Ergonomic task division; reduces hand-switching | Ergonomics (Dix et al., 2004, p. 131)               |
+| Undo / redo stack (planned) | Allows recovery from accidental deletions or moves | Reversibility and error forgiveness (Dix et al., 2004, p. 171) |
 
-  Persistent mode         User always knows       Visibility of system
-  indicator               current system state    status (Nielsen, 1994;
-                                                  Dix et al., 2004, Ch.
-                                                  9,p. 325)
-
-  Hover highlight on      Signals interactable    Affordances (Dix et
-  nearest point           objects; reduces        al., 2004, p. 217);
-                          mis-clicks              error prevention
-
-  Real-time drag feedback Immediate response      Direct manipulation
-                          during manipulation     principle (Dix et al.,
-                          reduces uncertainty     2004, p. 171)
-
-  Nearest-point threshold Prevents accidental     Error prevention (Dix
-                          point selection in      et al., 2004, p. 283)
-                          dense polylines         
-
-  Keyboard for modes,     Ergonomic task          Ergonomics (Dix et al.,
-  mouse for space         division; reduces       2004, p. 131)
-                          hand-switching          
-
-  Undo / redo stack       Allows recovery from    Reversibility and error
-  (planned)               accidental deletions or forgiveness (Dix et
-                          moves                   al., 2004, p. 171)
-  ----------------------- ----------------------- -----------------------
 
 **8. Prototype Planning**
 
