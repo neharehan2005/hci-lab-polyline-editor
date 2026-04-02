@@ -69,6 +69,10 @@ project-root/
 |
 │
 ├── README.md     # Project overview and instructions
+|
+|
+├── docs/
+    ├── DesignPhase.md
 ```
 ---
 
