@@ -396,35 +396,18 @@ simplified.
 
 ## The prototype follows an **incremental and simulation-based approach**, where key interaction components are implemented and evaluated.
 
-  ---------------------- ------------------------------------------------
-  **Feature**            **Behaviour**
 
-  Canvas rendering       Points as filled circles; line segments between
-                         vertices
-
-  Mode switching         Buttons switch active mode; status bar updates
-                         accordingly
-
-  Draw mode              Left-click adds vertex; polyline grows with each
-                         click
-
-  Move mode              Hover highlights nearest point; click-drag
-                         repositions with live redraw
-
-  Delete mode            Hover highlights nearest point; click removes it
-                         and redraws
-
-  Refresh                Flash animation + canvas clear + status message
-
-  Style Options          Left sidebar controls for line color, width,
-                         point radius, point color
-
-  Undo / Redo            Single-step undo implemented for scenario
-                         testing
-
-  NOT included           File save/load, multi-polyline management
-                         (planned for implementation)
-  ---------------------- ------------------------------------------------
+| Feature           | Behaviour                                                                 |
+|------------------|--------------------------------------------------------------------------|
+| Canvas rendering  | Points as filled circles; line segments between vertices                 |
+| Mode switching    | Buttons switch active mode; status bar updates accordingly              |
+| Draw mode         | Left-click adds vertex; polyline grows with each click                   |
+| Move mode         | Hover highlights nearest point; click-drag repositions with live redraw  |
+| Delete mode       | Hover highlights nearest point; click removes it and redraws             |
+| Refresh           | Flash animation + canvas clear + status message                          |
+| Style Options     | Left sidebar controls for line color, width, point radius, point color   |
+| Undo / Redo       | Single-step undo implemented for scenario testing                        |
+| NOT included      | File save/load, multi-polyline management (planned for implementation)   |
 
 This scope reflects the idea of prototypes focusing on selected aspects
 of functionality, rather than the complete system.
