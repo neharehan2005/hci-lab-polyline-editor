@@ -28,7 +28,7 @@ See documentation:
 `/docs/DesignPhase.md`
 
 
-`/assests/wireframe.png`
+`/assests/Wireframe.png`
 
 ### ⚠️ Challenges Faced
 
