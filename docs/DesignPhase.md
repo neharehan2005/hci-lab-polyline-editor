@@ -394,7 +394,7 @@ simplified.
 
 ## 8.2 Prototype Scope
 
-## The prototype follows an **incremental and simulation-based approach**, where key interaction components are implemented and evaluated.
+ The prototype follows an **incremental and simulation-based approach**, where key interaction components are implemented and evaluated.
 
 
 | Feature           | Behaviour                                                                 |
