@@ -124,13 +124,14 @@ project-root/
 │
 |
 ├── assets/       # Images, screenshots, diagrams
-|
+|    ├── Wireframe.png
 │
 ├── README.md     # Project overview and instructions
 |
 |
 ├── docs/
     ├── DesignPhase.md
+    ├── Phase3_Design_HCI_PolylineEditor.pdf
 ```
 ---
 
