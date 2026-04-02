@@ -33,6 +33,14 @@ See documentation:
 
 `/assests/Wireframe.png`
 
+
+`/assests/TaskFlow-Draw.png`
+
+
+`/assests/TaskFlow-Move.png`
+
+
+`/assests/TaskFlow-Delete.png`
 ### ⚠️ Challenges Faced
 
 * Making the UI **intuitive without clutter**
