@@ -129,16 +129,16 @@ project-root/
 │   └── script.js
 │
 |
-├── doc/          # Phase documentation (Markdown + PDF)
-│
-|
 ├── assets/       # Images, screenshots, diagrams
 |    ├── Wireframe.png
+|    ├── TaskFlow-Draw.png
+|    ├── TaskFlow-Move.png
+|    ├── TaskFlow-Delete.png
 │
 ├── README.md     # Project overview and instructions
 |
 |
-├── docs/
+├── docs/        #Phase documents
     ├── DesignPhase.md
     ├── Phase3_Design_HCI_PolylineEditor.pdf
 ```
