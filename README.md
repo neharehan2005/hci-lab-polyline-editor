@@ -58,8 +58,6 @@ See documentation:
 * Used **status bar feedback** instead of intrusive popups
 
 ### 🛠 Main Implementation
-
-* Implementation completed collaboratively
 * Design and interaction logic by: **Neha Rehan B23110006131**
 
 ### 🔗 Original Repository
