@@ -351,7 +351,7 @@ consistent interaction grammar.
 | Hover highlight on nearest point | Signals interactable objects; reduces mis-clicks | Affordances (Dix et al., 2004, p. 217); error prevention |
 | Real-time drag feedback   | Immediate response during manipulation reduces uncertainty | Direct manipulation principle (Dix et al., 2004, p. 171) |
 | Nearest-point threshold   | Prevents accidental point selection in dense polylines | Error prevention (Dix et al., 2004, p. 283)           |
-| Keyboard for modes, mouse for space | Ergonomic task division; reduces hand-switching | Ergonomics (Dix et al., 2004, p. 131)               |
+| Keyboard for modes, mouse for spatial interaction| Ergonomic task division; reduces hand-switching | Ergonomics (Dix et al., 2004, p. 131)               |
 | Undo / redo stack (planned) | Allows recovery from accidental deletions or moves | Reversibility and error forgiveness (Dix et al., 2004, p. 171) |
 
 
