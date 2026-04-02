@@ -25,6 +25,9 @@
 See documentation:
 
 
+`/docs/Phase3_Design_HCI_PolylineEditor.pdf`
+
+
 `/docs/DesignPhase.md`
 
 
