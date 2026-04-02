@@ -141,114 +141,80 @@ reveals where the interface can either support or obstruct the user.
 
 ## 4.1 Task Flow: Drawing a Polyline
 
-+-----------------------------------------------------------------------+
-| **Task Flow --- Draw Mode**                                           |
-|                                                                       |
-| Precondition: Application is running; no mode selected.               |
-|                                                                       |
-| Step 1 → User presses \'B\'                                           |
-|                                                                       |
-| System highlights mode indicator: \'MODE: DRAW\'                      |
-|                                                                       |
-| Status bar shows: \'Draw mode active. Click to add points.\'          |
-|                                                                       |
-| Step 2 → User left-clicks on canvas at position P1                    |
-|                                                                       |
-| System renders a filled circle at P1                                  |
-|                                                                       |
-| Status bar shows: \'Point added at (x, y)\'                           |
-|                                                                       |
-| Step 3 → User left-clicks at position P2                              |
-|                                                                       |
-| System renders filled circle at P2                                    |
-|                                                                       |
-| System draws a line segment from P1 → P2                              |
-|                                                                       |
-| Step N → User continues clicking; each click extends the polyline     |
-|                                                                       |
-| End → User switches mode (e.g., presses \'M\') to stop drawing        |
-|                                                                       |
-| Current polyline is preserved on canvas                               |
-+-----------------------------------------------------------------------+
+## Task Flow — Draw Mode
 
+**Precondition:** Application is running; no mode selected.
+
+### Steps
+
+1. **User presses 'B'**  
+   - System highlights mode indicator: `MODE: DRAW`  
+   - Status bar shows: `Draw mode active. Click to add points.`
+
+2. **User left-clicks on canvas at position P1**  
+   - System renders a filled circle at P1  
+   - Status bar shows: `Point added at (x, y)`
+
+3. **User left-clicks at position P2**  
+   - System renders filled circle at P2  
+   - System draws a line segment from P1 → P2
+
+4. **User continues clicking**  
+   - Each click extends the polyline
+
+5. **End / Mode switch**  
+   - User switches mode (e.g., presses 'M') to stop drawing  
+   - Current polyline is preserved on canvas
+  
+     
 ## 4.2 Task Flow: Moving a Point
+## Task Flow — Move Mode
 
-+-----------------------------------------------------------------------+
-| **Task Flow --- Move Mode**                                           |
-|                                                                       |
-| Precondition: At least one polyline with 2+ points exists on canvas.  |
-|                                                                       |
-| Step 1 → User presses \'M\'                                           |
-|                                                                       |
-| Mode indicator updates: \'MODE: MOVE\'                                |
-|                                                                       |
-| System activates hover highlight for nearest point                    |
-|                                                                       |
-| Step 2 → User moves mouse near an existing point P                    |
-|                                                                       |
-| System highlights P in hover colour (nearest-point algorithm)         |
-|                                                                       |
-| Provides visual affordance: \'this point is selectable\'              |
-|                                                                       |
-| Step 3 → User clicks and holds on P                                   |
-|                                                                       |
-| P changes to \'selected\' colour                                      |
-|                                                                       |
-| Status bar: \'Point selected. Drag to move.\'                         |
-|                                                                       |
-| Step 4 → User drags mouse to new position P\'                         |
-|                                                                       |
-| Polyline redraws in real time, following cursor                       |
-|                                                                       |
-| (Live feedback --- Dix et al., 2004: continuous feedback during       |
-| manipulation)                                                         |
-|                                                                       |
-| Step 5 → User releases mouse button                                   |
-|                                                                       |
-| P is repositioned to P\'                                              |
-|                                                                       |
-| Status bar: \'Point moved to (x, y)\'                                 |
-+-----------------------------------------------------------------------+
+**Precondition:** At least one polyline with 2+ points exists on canvas.
+
+### Steps
+
+1. **User presses 'M'**  
+   - Mode indicator updates: `MODE: MOVE`  
+   - System activates hover highlight for nearest point
+
+2. **User moves mouse near an existing point P**  
+   - System highlights P in hover colour (nearest-point algorithm)  
+   - Provides visual affordance: `this point is selectable`
+
+3. **User clicks and holds on P**  
+   - P changes to `selected` colour  
+   - Status bar: `Point selected. Drag to move.`
+
+4. **User drags mouse to new position P'**  
+   - Polyline redraws in real time, following cursor  
+   - (Live feedback — Dix et al., 2004: continuous feedback during manipulation)
+
+5. **User releases mouse button**  
+   - P is repositioned to P'  
+   - Status bar: `Point moved to (x, y)`
 
 ## 4.3 Task Flow: Deleting a Point
+## Task Flow — Delete Mode
 
-+-----------------------------------------------------------------------+
-| **Task Flow --- Delete Mode**                                         |
-|                                                                       |
-| Precondition: At least one polyline exists.                           |
-|                                                                       |
-| Step 1 → User presses \'ctrl + delete\'                               |
-|                                                                       |
-| Mode indicator: \'MODE: DELETE\'                                      |
-|                                                                       |
-| Status bar: \'Delete mode active. Click a point to remove it.\'       |
-|                                                                       |
-| Step 2 → User hovers over a point; nearest point is highlighted       |
-|                                                                       |
-| Step 3 → User clicks the highlighted point                            |
-|                                                                       |
-| Point is removed from point array                                     |
-|                                                                       |
-| If 2+ points remain: adjacent segments re-join                        |
-|                                                                       |
-| If 1 point remains: isolated point persists (no segment)              |
-|                                                                       |
-| If 0 points remain: polyline object is discarded                      |
-|                                                                       |
-| Canvas redraws; status: \'Point deleted.\'                            |
-+-----------------------------------------------------------------------+
+**Precondition:** At least one polyline exists.
 
-## 4.4 Task Flow: Refreshing the Canvas
+### Steps
 
-+-----------------------------------------------------------------------+
-| **Task Flow --- Refresh**                                             |
-|                                                                       |
-| Step 1 → User presses \'R\'                                           |
-|                                                                       |
-| Step 2 → System triggers flash animation:                             |
-|                                                                       |
-| Step 3 → Status bar: Canvas refreshed,Mode resets to default          |
-+-----------------------------------------------------------------------+
+1. **User presses `Ctrl + Delete`**  
+   - Mode indicator: `MODE: DELETE`  
+   - Status bar: `Delete mode active. Click a point to remove it.`
+
+2. **User hovers over a point**  
+   - Nearest point is highlighted
+
+3. **User clicks the highlighted point**  
+   - Point is removed from point array  
+   - If 2+ points remain: adjacent segments re-join  
+   - If 1 point remains: isolated point persists (no segment)  
+   - If 0 points remain: polyline object is discarded  
+   - Canvas redraws; status: `Point deleted.`
+
 
 **5. HCI Principles Applied in Design**
 
