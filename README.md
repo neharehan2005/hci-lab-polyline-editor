@@ -53,6 +53,7 @@ An interactive web application for creating, editing, and managing multiple poly
 ---
 
 ## 📂 Folder Structure
+```
 project-root/
 │
 ├── code/         # All working project code
@@ -68,7 +69,7 @@ project-root/
 |
 │
 ├── README.md     # Project overview and instructions
-
+```
 ---
 
 ## 🚀 How to Run
