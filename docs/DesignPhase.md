@@ -61,73 +61,16 @@ removes this ambiguity and reduces the cognitive load on the user.
 
 The table below maps each application mode to its triggering input and
 the resulting system action:
-
-+------------+---------------+-------------------+-------------------+
-| **Mode**   | **Trigger**   | **User Action**   | **System          |
-|            |               |                   | Response**        |
-+------------+---------------+-------------------+-------------------+
-| Draw       | Key: B /      | Left-click on     | Adds vertex; line |
-|            | Button: Draw  | canvas            | drawn from last   |
-|            |               |                   | point; press B    |
-|            |               |                   | again to finish   |
-|            |               |                   | current polyline  |
-|            |               |                   | and start a new   |
-|            |               |                   | one               |
-+------------+---------------+-------------------+-------------------+
-| Move       | Key: M /      | Click nearest     | Point             |
-|            | Button: Move  | point, drag to    | repositions;      |
-|            |               | new position      | polyline redraws  |
-|            |               |                   | live              |
-+------------+---------------+-------------------+-------------------+
-| Delete     | Key:          | Click nearest     | Point removed;    |
-|            | D/            | point             | segments          |
-|            | Button:Delete |                   | re-joined or line |
-|            |               |                   | split             |
-+------------+---------------+-------------------+-------------------+
-| Refresh    | Key: R /      | Press R or click  | Canvas flashes    |
-|            | Button:       | Refresh           | white; all        |
-|            | Refresh       |                   | polylines again   |
-|            |               |                   | shows             |
-+------------+---------------+-------------------+-------------------+
-|   -------  | Ctrl + Z /    | Press Ctrl + Z or |   --------------- |
-|   Undo     | Button: Undo  | click Undo        |   Last action     |
-|   -------  |               |                   |   reverted (point |
-|            |               |                   |   added/removed   |
-|   -------  |               |                   |   or moved)       |
-|            |               |                   |   --------------- |
-|   -------  |               |                   |                   |
-|            |               |                   |   --------------- |
-|   -------  |               |                   |                   |
-+------------+---------------+-------------------+-------------------+
-| Redo       | Ctrl + Y /    | Press Ctrl + Y or | Last undone       |
-|            | Button: Redo  | click Redo        | action reapplied  |
-+------------+---------------+-------------------+-------------------+
-|   -------  | Ctrl + Delete | Press Ctrl +      | Canvas cleared;   |
-|   Clear    | / Button:     | Delete or click   | status message    |
-|   -------  | Clear         | Clear             | shown             |
-|            |               |                   |                   |
-|   -------  |               |                   |                   |
-|            |               |                   |                   |
-|   -------  |               |                   |                   |
-|            |               |                   |                   |
-|   -------  |               |                   |                   |
-|            |               |                   |                   |
-|   -------  |               |                   |                   |
-|            |               |                   |                   |
-|   -------  |               |                   |                   |
-+------------+---------------+-------------------+-------------------+
-| Export PNG |   ----------  |   --------------  | Current canvas    |
-|            |   Ctrl + S /  |   Press Ctrl + S  | exported as PNG   |
-|            |   Button:     |   or click PNG    |                   |
-|            |   PNG         |   --------------  |                   |
-|            |   ----------  |                   |                   |
-|            |               |   --------------  |                   |
-|            |   ----------  |                   |                   |
-|            |               |   --------------  |                   |
-|            |   ----------  |                   |                   |
-|            |               |   --------------  |                   |
-|            |   ----------  |                   |                   |
-+------------+---------------+-------------------+-------------------+
+| **Mode** | **Trigger** | **User Action** | **System Response** |
+|----------|------------|----------------|---------------------|
+| Draw | Key: B / Button: Draw | Left-click on canvas | Adds vertex; line drawn from last point; press B again to finish current polyline and start a new one |
+| Move | Key: M / Button: Move | Click nearest point, drag to new position | Point repositions; polyline redraws live |
+| Delete | Key: D / Button: Delete | Click nearest point | Point removed; segments re-joined or line split |
+| Refresh | Key: R / Button: Refresh | Press R or click Refresh | Canvas flashes white; all polylines shown again |
+| Undo | Ctrl + Z / Button: Undo | Press Ctrl + Z or click Undo | Last action reverted (point added/removed or moved) |
+| Redo | Ctrl + Y / Button: Redo | Press Ctrl + Y or click Redo | Last undone action reapplied |
+| Clear | Ctrl + Delete / Button: Clear | Press Ctrl + Delete or click Clear | Canvas cleared; status message shown |
+| Export PNG | Ctrl + S / Button: PNG | Press Ctrl + S or click PNG | Current canvas exported as PNG |
 
 #### 
 
@@ -185,53 +128,6 @@ divided into three functional zones:
   ----------------------------------- -----------------------------------
 
 ## 3.2 Wireframe
-
-+-----------------------------------------------------------------------+
-| **Wireframe Diagram**                                                 |
-|                                                                       |
-| +\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\                  |
-| -\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\--+ |
-|                                                                       |
-| \| MODE: DRAW \[B\] \[M\] \[X\] \[R\] \[Q\] \|\<- Top Bar             |
-|                                                                       |
-| \| (High-contrast, always visible) (key hints) \|                     |
-|                                                                       |
-| +\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\                  |
-| -\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\--+ |
-|                                                                       |
-| \| \|                                                                 |
-|                                                                       |
-| \| P1 (●)\-\-\-\-\-\-\-\-\-\--(●) P2 \|                               |
-|                                                                       |
-| \| \\ \|                                                              |
-|                                                                       |
-| \| \\ \| \<- Canvas                                                   |
-|                                                                       |
-| \| (●) P3 \|                                                          |
-|                                                                       |
-| \| \|                                                                 |
-|                                                                       |
-| \| (○) \<- hover highlight on nearest point \|                        |
-|                                                                       |
-| \| \|                                                                 |
-|                                                                       |
-| \| \[cursor shows crosshair in Draw; pointer in Move/Delete\] \|      |
-|                                                                       |
-| +\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\                  |
-| -\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\--+ |
-|                                                                       |
-| \| Status: Point added at (345, 210) \|\<- Status Bar                 |
-|                                                                       |
-| +\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\                  |
-| -\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\--+ |
-|                                                                       |
-| ● = rendered vertex (filled circle, dark grey)                        |
-|                                                                       |
-| ○ = highlighted/nearest point (bright colour, changes on hover)       |
-|                                                                       |
-| P1, P2, P3 = vertex labels                                            |
-+-----------------------------------------------------------------------+
-
 ![Wireframe](../assets/Wireframe.png)
 
 **4. Task Flows**
