@@ -60,9 +60,12 @@ project-root/
 │   ├── style.css
 │   └── script.js
 │
+|
 ├── doc/          # Phase documentation (Markdown + PDF)
 │
+|
 ├── assets/       # Images, screenshots, diagrams
+|
 │
 ├── README.md     # Project overview and instructions
 
