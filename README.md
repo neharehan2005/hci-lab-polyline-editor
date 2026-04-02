@@ -1,3 +1,57 @@
+## 👤 My Contribution (Design Phase)
+
+### 🧩 My Role
+
+**Phase 3 — Design (HCI)**
+
+### ✨ What I Did
+
+* Designed the **interaction model** (mode-based direct manipulation)
+* Created **UI layout structure** (Top bar, Canvas, Status bar)
+* Developed detailed **task flows** (Draw, Move, Delete, Refresh)
+* Applied core **HCI principles**:
+
+  * Feedback
+  * Visibility of system status
+  * Consistency
+  * Affordances
+  * Error prevention & recovery (Undo/Redo)
+* Designed **wireframe and interface behavior**
+* Defined **mode-to-action mapping** (keyboard + mouse interaction)
+* Planned **interactive prototype using HTML5 Canvas**
+
+### 📄 My Work
+
+See documentation:
+`/docs/DesignPhase.md`
+`/assests/wireframe.png`
+
+### ⚠️ Challenges Faced
+
+* Making the UI **intuitive without clutter**
+* Designing a clear **mode-based system** to avoid user confusion
+* Deciding **button placement and interaction flow**
+* Balancing **simplicity vs functionality** (mode-based vs tool-based design)
+* Handling **accurate point selection (nearest-point threshold)**
+
+### 🧠 Key Design Decisions
+
+* Used **mode-based interaction** to reduce ambiguity
+* Added **persistent mode indicator** for clarity
+* Implemented **hover highlight** for better affordance
+* Included **Undo/Redo** for error recovery
+* Used **status bar feedback** instead of intrusive popups
+
+### 🛠 Main Implementation
+
+* Implementation completed collaboratively
+* Design and interaction logic by: **Neha Rehan B23110006131**
+
+### 🔗 Original Repository
+
+(https://github.com/Sana-212/hci-lab-polyline-editor.git)
+
+
 # Polyline Editor
 
 An interactive web application for creating, editing, and managing multiple polylines on a canvas. The **Polyline Editor** allows users to draw, move, delete, and style polylines in real-time with intuitive controls and visual feedback.
